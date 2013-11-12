@@ -4,15 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import com.example.AnnotationsProcessor.CustomAnnotation;
+import android.widget.TextView;
 
-@CustomAnnotation(className = "String", type = 1)
 public class MyActivity extends Activity {
 
-    private String stuff = "{\n" +
-            "    \"id\": 12,\n" +
-            "    \"name\": \"Yuliya\",\n" +
-            "    \"isCheck\": true\n" +
-            "}";
+    TextView textView;
 
     private String stuffChild = "{\n" +
             "    \"id\": \"12\",\n" +
@@ -28,6 +24,9 @@ public class MyActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        ReqObj reqObj = new ReqObj();
+        reqObj.getJson("Minsk");
 
         MyObj myObj = new MyObj();
         MyObj.parse(stuffChild, myObj);
