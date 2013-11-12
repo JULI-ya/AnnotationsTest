@@ -25,6 +25,7 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+
         ReqObj reqObj = new ReqObj();
         reqObj.getJson("Minsk");
 
