@@ -1,18 +1,12 @@
 package com.example.AnnotationsTest;
 
 
-import com.example.AnnotationsProcessor.ChildObj;
 import com.example.AnnotationsProcessor.ParcelableObj;
 
 @ParcelableObj
-public class MyObj extends MyObjProjection {
+public class MyObjChild extends MyObjChildProjection {
 
     public int id;
     public String name;
-    boolean isCheck;
-    @ChildObj
-    MyObjChild child;
-
-
+    public int parentId;
 }
-
