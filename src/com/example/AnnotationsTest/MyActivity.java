@@ -5,8 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import com.example.AnnotationsProcessor.CustomAnnotation;
 import android.widget.TextView;
+import com.example.AnnotationsProcessor.LoadCompleteListener;
 
-public class MyActivity extends Activity {
+public class MyActivity extends Activity implements LoadCompleteListener {
 
     TextView textView;
 
@@ -25,8 +26,9 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        textView = (TextView) findViewById(R.id.text);
 
-        ReqObj reqObj = new ReqObj();
+        ReqObj reqObj = new ReqObj(this);
         reqObj.getJson("Minsk");
 
         MyObj myObj = new MyObj();
@@ -36,5 +38,10 @@ public class MyActivity extends Activity {
 
     @CustomAnnotation(className = "String", type = 2)
     public void annotatedMethod(String value) {
+    }
+
+    @Override
+    public void onLoadComplete(String result) {
+        textView.setText(result);
     }
 }

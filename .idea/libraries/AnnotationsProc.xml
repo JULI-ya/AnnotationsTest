@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="AnnotationsProc">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../AnnotationsProc/out/artifacts/AnnotationsProc_jar/AnnotationsProc.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
