@@ -10,6 +10,7 @@ import com.example.AnnotationsProcessor.LoadCompleteListener;
 public class MyActivity extends Activity implements LoadCompleteListener {
 
     TextView textView;
+    Weather weather;
 
     private String stuffChild = "{\n" +
             "    \"id\": \"12\",\n" +
@@ -34,6 +35,8 @@ public class MyActivity extends Activity implements LoadCompleteListener {
         MyObj myObj = new MyObj();
         MyObj.parse(stuffChild, myObj);
         Log.d(getPackageName(), " " + myObj.name);
+
+        weather = new Weather();
     }
 
     @CustomAnnotation(className = "String", type = 2)
@@ -42,6 +45,7 @@ public class MyActivity extends Activity implements LoadCompleteListener {
 
     @Override
     public void onLoadComplete(String result) {
-        textView.setText(result);
+        Weather.parse(result, weather);
+        textView.setText("City = " + weather.name +"\nLatitude = " + String.valueOf(weather.coord.lat) + "\nLongitude = " + String.valueOf(weather.coord.lon));
     }
 }
